@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator Vue.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue"></script>    
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td colspan="5">
+                    <div id="display">{{value}}</div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="MC" /></td>
+                <td><input type="button" value="MR" /></td>
+                <td><input type="button" value="MS" /></td>
+                <td><input type="button" value="M+" /></td>
+                <td><input type="button" value="M-" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="&larr;" v-on:click="onBackspaceClicked" /></td> <!-- backspace -->
+                <td><input type="button" value="CE" /></td>
+                <td><input type="button" value="C" v-on:click="onClearClicked" /></td>
+                <td><input type="button" value="&plusmn;" v-on:click="onAdditiveInverseClicked" /></td> <!-- plus minus -->
+                <td><input type="button" value="&radic;" v-on:click="onSqrtClicked" /></td>  <!-- sqrt -->
+            </tr>
+            <tr>
+                <td><input type="button" value="7" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="8" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="9" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="/" v-on:click="onOperationClicked" /></td>
+                <td><input type="button" value="%" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="5" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="6" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="*" v-on:click="onOperationClicked" /></td>
+                <td><input type="button" value="1/x" v-on:click="onMultiplicativeInverseClicked" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="2" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="3" v-on:click="onDigitClicked" /></td>
+                <td><input type="button" value="-" v-on:click="onOperationClicked" /></td>
+                <td rowspan="2">
+                    <input type="button" value="=" v-on:click="onCalculateClicked" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="0" v-on:click="onDigitClicked" />
+                </td>
+                <td><input type="button" value="." v-on:click="onPointClicked" /></td>
+                <td><input type="button" value="+" v-on:click="onOperationClicked" /></td>
+            </tr>
+        </table>
+    </div>    
+    <script src="main.js"></script>
+</body>
+</html>
