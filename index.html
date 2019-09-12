@@ -22,41 +22,41 @@
                 <td><input type="button" value="M-" /></td>
             </tr>
             <tr>
-                <td><input type="button" value="&larr;" v-on:click="onBackspaceClicked" /></td> <!-- backspace -->
-                <td><input type="button" value="CE" /></td>
-                <td><input type="button" value="C" v-on:click="onClearClicked" /></td>
-                <td><input type="button" value="&plusmn;" v-on:click="onAdditiveInverseClicked" /></td> <!-- plus minus -->
-                <td><input type="button" value="&radic;" v-on:click="onSqrtClicked" /></td>  <!-- sqrt -->
+                <td><input type="button" value="&larr;" v-on:click="backspace" v-bind:disabled="!canBackspace" /></td> <!-- backspace -->
+                <td><input type="button" value="CE" v-on:click="clearEntry" /></td>
+                <td><input type="button" value="C" v-on:click="clear" /></td>
+                <td><input type="button" value="&plusmn;" v-on:click="inverseAdditive" v-bind:disabled="!canInverseAdditive" /></td> <!-- plus minus -->
+                <td><input type="button" value="&radic;" v-on:click="calculateSquareRoot" v-bind:disabled="!canCalculateSquareRoot" /></td>  <!-- sqrt -->
             </tr>
             <tr>
-                <td><input type="button" value="7" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="8" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="9" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="/" v-on:click="onOperationClicked" /></td>
+                <td><input type="button" value="7" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="8" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="9" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="/" v-on:click="appendOperation" /></td>
                 <td><input type="button" value="%" /></td>
             </tr>
             <tr>
-                <td><input type="button" value="4" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="5" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="6" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="*" v-on:click="onOperationClicked" /></td>
-                <td><input type="button" value="1/x" v-on:click="onMultiplicativeInverseClicked" /></td>
+                <td><input type="button" value="4" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="5" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="6" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="*" v-on:click="appendOperation" /></td>
+                <td><input type="button" value="1/x" v-on:click="inverseMultiplicative" v-bind:disabled="!canInverseMultiplicative" /></td>
             </tr>
             <tr>
-                <td><input type="button" value="1" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="2" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="3" v-on:click="onDigitClicked" /></td>
-                <td><input type="button" value="-" v-on:click="onOperationClicked" /></td>
+                <td><input type="button" value="1" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="2" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="3" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
+                <td><input type="button" value="-" v-on:click="appendOperation" /></td>
                 <td rowspan="2">
-                    <input type="button" value="=" v-on:click="onCalculateClicked" />
+                    <input type="button" value="=" v-on:click="calculate" />
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="button" value="0" v-on:click="onDigitClicked" />
+                    <input type="button" value="0" v-on:click="appendDigit" v-bind:disabled="!canAppendZero || !canAppendDigit" />
                 </td>
-                <td><input type="button" value="." v-on:click="onPointClicked" /></td>
-                <td><input type="button" value="+" v-on:click="onOperationClicked" /></td>
+                <td><input type="button" value="." v-on:click="appendPoint" v-bind:disabled="!canAppendPoint" /></td>
+                <td><input type="button" value="+" v-on:click="appendOperation" /></td>
             </tr>
         </table>
     </div>    
