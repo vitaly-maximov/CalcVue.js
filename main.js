@@ -170,6 +170,10 @@ var app = new Vue({
                 this.value += constants.point;
             },
 
+            applyPercent: function() {
+                this.makeUnaryValueOperation(value => parseFloat(this.first) * value / 100);                
+            },
+
             calculateSquareRoot: function() {
                 this.makeUnaryValueOperation(value => Math.sqrt(value));
             },            
