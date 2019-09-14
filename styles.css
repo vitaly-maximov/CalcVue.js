@@ -1,8 +1,20 @@
 #display {
+    width: 250px;    
     padding: 5px;
     border-style: solid;
     border-width: 1px;
     border-color: gray;
+}
+
+#memory {
+    margin-right: 10px;
+    text-align: left;
+    font-family: monospace;
+    font-size: 18px;    
+}
+
+#value {    
+    float: right;
     text-align: right;
     font-family: monospace;
     font-size: 18px;

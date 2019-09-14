@@ -11,8 +11,13 @@ var app = new Vue({
             second: null,
             operation: null,
             value: "0",
+            memory: "0",
         },        
         computed: {
+            canClearMemory: function() {
+                return this.memory !== "0";
+            },
+
             canBackspace: function() {
                 return (
                     (this.value !== "0") && 
@@ -48,6 +53,31 @@ var app = new Vue({
             }
         },
         methods: {
+            clearMemory: function() {
+                this.memory = "0";
+                this.needToClearEntry = true;
+            },
+
+            recallMemory: function() {
+                this.value = this.memory;
+                this.needToClearEntry = true;
+            },
+
+            storeMemory: function() {
+                this.memory = this.value;
+                this.needToClearEntry = true;
+            },
+
+            addInMemory: function() {
+                this.memory = (parseFloat(this.memory) + parseFloat(this.value)).toString();
+                this.needToClearEntry = true;
+            },
+
+            subtractInMemory: function() {
+                this.memory = (parseFloat(this.memory) - parseFloat(this.value)).toString();
+                this.needToClearEntry = true;
+            },
+
             backspace: function() {                
                 this.value = this.value.substring(0, this.value.length - 1);
 

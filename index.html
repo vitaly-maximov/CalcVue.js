@@ -10,16 +10,19 @@
     <div id="app">
         <table>
             <tr>
-                <td colspan="5">
-                    <div id="display">{{value}}</div>
+                <td colspan="5">                    
+                    <div id="display">
+                        <span id="memory">{{canClearMemory?'M':' '}}</span>
+                        <span id="value">{{value}}</span>
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td><input type="button" value="MC" /></td>
-                <td><input type="button" value="MR" /></td>
-                <td><input type="button" value="MS" /></td>
-                <td><input type="button" value="M+" /></td>
-                <td><input type="button" value="M-" /></td>
+                <td><input type="button" value="MC" v-on:click="clearMemory" v-bind:disabled="!canClearMemory" /></td>
+                <td><input type="button" value="MR" v-on:click="recallMemory" /></td>
+                <td><input type="button" value="MS" v-on:click="storeMemory" /></td>
+                <td><input type="button" value="M+" v-on:click="addInMemory" /></td>
+                <td><input type="button" value="M-" v-on:click="subtractInMemory" /></td>
             </tr>
             <tr>
                 <td><input type="button" value="&larr;" v-on:click="backspace" v-bind:disabled="!canBackspace" /></td> <!-- backspace -->
