@@ -1,5 +1,5 @@
 var constants = {
-    point: ".",    
+    point: ".",
 };
 
 var app = new Vue({
@@ -12,8 +12,21 @@ var app = new Vue({
             operation: null,
             value: "0",
             memory: "0",
-        },        
+        },
         computed: {
+            history: function() {
+                if ((this.first === null) && 
+                    !this.needToSaveFirst) {
+                    return "";
+                }
+
+                var value = (this.first === null)
+                    ? this.value
+                    : this.first;
+
+                return value + " " + this.operation;
+            },
+
             canClearMemory: function() {
                 return this.memory !== "0";
             },
@@ -38,6 +51,10 @@ var app = new Vue({
 
             canAppendPoint: function() {
                 return !this.value.includes(constants.point);
+            },
+
+            canApplyPercent: function() {
+                return (this.first !== null);
             },
 
             canCalculateSquareRoot: function() {
@@ -78,12 +95,12 @@ var app = new Vue({
                 this.needToClearEntry = true;
             },
 
-            backspace: function() {                
+            backspace: function() {
                 this.value = this.value.substring(0, this.value.length - 1);
 
                 if ((this.value === "") ||
                     (this.value === "-") ||
-                    (this.value === "-0")) {                
+                    (this.value === "-0")) {
                     this.value = "0";
                 }
             },
@@ -130,7 +147,7 @@ var app = new Vue({
                 }
 
                 this.value = value.toString();
-                this.first = null;                
+                this.first = null;
                 this.needToClearEntry = true;
                 this.needToSaveFirst = false;
             },

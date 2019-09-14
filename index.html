@@ -12,6 +12,7 @@
             <tr>
                 <td colspan="5">                    
                     <div id="display">
+                        <div id="history">{{history}}</div>
                         <span id="memory">{{canClearMemory?'M':' '}}</span>
                         <span id="value">{{value}}</span>
                     </div>
@@ -36,7 +37,7 @@
                 <td><input type="button" value="8" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
                 <td><input type="button" value="9" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>
                 <td><input type="button" value="/" v-on:click="appendOperation" /></td>
-                <td><input type="button" value="%" v-on:click="applyPercent" /></td>
+                <td><input type="button" value="%" v-on:click="applyPercent" v-bind:disabled="!canApplyPercent" /></td>
             </tr>
             <tr>
                 <td><input type="button" value="4" v-on:click="appendDigit" v-bind:disabled="!canAppendDigit" /></td>

@@ -4,6 +4,15 @@
     border-style: solid;
     border-width: 1px;
     border-color: gray;
+    background-image: linear-gradient(#f0f0f0, white, white);
+}
+
+#history {    
+    height: 13px;    
+    text-align: right;
+    font-family: monospace;
+    font-size: 12px;
+    color: gray;    
 }
 
 #memory {
