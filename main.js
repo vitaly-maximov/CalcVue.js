@@ -76,6 +76,11 @@ var app = new Vue({
             },
 
             recallMemory: function() {
+                if (this.needToSaveFirst) {
+                    this.first = this.value;
+                    this.needToSaveFirst = false;
+                }
+
                 this.value = this.memory;
                 this.needToClearEntry = true;
             },
